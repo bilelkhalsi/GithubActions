@@ -25,8 +25,9 @@ jobs:
 
       - name: Deploy BPMN model
         run: |
+          ls --all
           curl -X POST \
             -H "Content-Type: multipart/form-data" \
             -F "deployment-name=hello-world-workflow" \
-            -F "hello-world-process.bpmn=@/bpmn/hello-world-process.bpmn" \
+            -F "hello-world-process.bpmn=bpmn/hello-world-process.bpmn" \
             http://localhost:8080/engine-rest/deployment/create
