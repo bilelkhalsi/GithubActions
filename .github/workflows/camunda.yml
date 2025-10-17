@@ -6,7 +6,8 @@ on:
 
 env:
   PROCESS_NAME: hello-world-process
-  
+  PROCESS_KEY: Process_1hadrig
+
 jobs:
   camunda-run:
     runs-on: ubuntu-latest
@@ -34,9 +35,10 @@ jobs:
             -F "deployment-name=hello-world-workflow" \
             -F "${PROCESS_NAME}.bpmn=@bpmn/${PROCESS_NAME}.bpmn" \
             http://localhost:8080/engine-rest/deployment/create
+
       - name: Start BPMN Process
         run: |
-          curl -X POST http://localhost:8080/engine-rest/process-definition/key/${PROCESS_NAME}/start \
+          curl -X POST http://localhost:8080/engine-rest/process-definition/key/${PROCESS_KEY}/start \
             -H "Content-Type: application/json" \
             -d '{
                   "variables": {
