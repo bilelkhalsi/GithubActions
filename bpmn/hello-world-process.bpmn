@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0phkute" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.38.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.23.0">
+  <bpmn:process id="Process_1hadrig" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Say hello world">
+      <bpmn:outgoing>Flow_000errz</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_000errz" sourceRef="StartEvent_1" targetRef="Activity_0xm8hva" />
+    <bpmn:scriptTask id="Activity_0xm8hva" name="Hello World !" scriptFormat="groovy" camunda:resultVariable="">
+      <bpmn:incoming>Flow_000errz</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qh6hf3</bpmn:outgoing>
+      <bpmn:script>println "Hello, World !"</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:endEvent id="Event_1xhr90m" name="Bye">
+      <bpmn:incoming>Flow_0qh6hf3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0qh6hf3" sourceRef="Activity_0xm8hva" targetRef="Event_1xhr90m" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1hadrig">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="163" y="145" width="75" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xm8hva_di" bpmnElement="Activity_0xm8hva">
+        <dc:Bounds x="360" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1xhr90m_di" bpmnElement="Event_1xhr90m">
+        <dc:Bounds x="602" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="610" y="145" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_000errz_di" bpmnElement="Flow_000errz">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="360" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qh6hf3_di" bpmnElement="Flow_0qh6hf3">
+        <di:waypoint x="460" y="120" />
+        <di:waypoint x="602" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
